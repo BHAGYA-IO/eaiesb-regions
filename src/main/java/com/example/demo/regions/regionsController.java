@@ -34,4 +34,23 @@ public class regionsController {
 	}
 
 	
+
+	@PostMapping("/regions")
+	public regions saveRegions(@Validated @RequestBody regions regions)
+
+	{
+		return regRepo.save(regions);
+
+	}
+
+	@PutMapping("/regions/{id}")
+	public regions update(@PathVariable String id, @Validated @RequestBody regions reg) {
+		reg.setId(id);
+		return regRepo.save(reg);
+	}
+
+	@DeleteMapping("/locations/{id}")
+	public void deleteRegions(@PathVariable String id) {
+		regRepo.deleteById(id);
+	}
 }
